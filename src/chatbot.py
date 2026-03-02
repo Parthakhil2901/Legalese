@@ -1,9 +1,15 @@
-'''Purpose:
-Controls chatbot logic.'''
+"""
+Chatbot controller
+Purpose: Accept user question → retrieve answer → return response
+"""
+
 from src.retriever import retrieve
 
-def chatbot(query):
 
-    answer = retrieve(query)
+def ask_chatbot(question: str):
+
+    print("\nSearching legal database...")
+
+    answer = retrieve(question)
 
     return answer

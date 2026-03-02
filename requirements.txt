@@ -1,0 +1,5 @@
+sentence-transformers==2.7.0
+qdrant-client==1.9.1
+torch
+transformers
+numpy

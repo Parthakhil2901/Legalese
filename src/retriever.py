@@ -1,17 +1,24 @@
-'''Purpose:
-Implements retrieval algorithm.'''
+"""
+Retriever module
+Purpose: Convert user query → embedding → search Qdrant → return best legal text
+"""
+
 from src.embedder import get_embedding
 from src.qdrant_db import search
-from src.reranker import rerank
 
-def retrieve(query):
 
+def retrieve(query: str):
+
+    # Step 1: convert query to vector embedding
     query_embedding = get_embedding(query)
 
+    # Step 2: search vector database
     results = search(query_embedding)
 
-    docs = [result.payload["text"] for result in results]
+    if len(results) == 0:
+        return "No relevant legal document found."
 
-    ranked_docs = rerank(query, docs)
+    # Step 3: extract best match text
+    best_match = results[0].payload["text"]
 
-    return ranked_docs
+    return best_match

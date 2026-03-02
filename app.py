@@ -1,37 +1,31 @@
-import os
-from src.embedder import get_embedding
-from src.qdrant_db import create_collection, insert_document
-from src.chatbot import chatbot
+"""
+LexIntel Legal AI Chatbot
+Terminal interface
+"""
 
-folder = "data/legal_docs"
-
-documents = []
-
-for file in os.listdir(folder):
-
-    with open(os.path.join(folder, file), "r", encoding="utf-8") as f:
-
-        documents.append(f.read())
+from src.chatbot import ask_chatbot
 
 
-embedding = get_embedding(documents[0])
+def main():
 
-vector_size = len(embedding)
+    print("\nLexIntel Legal AI Chatbot is ready.")
+    print("Ask any legal question.")
+    print("Type 'exit' to quit.\n")
 
-create_collection(vector_size)
+    while True:
+
+        question = input("Your question: ")
+
+        if question.lower() == "exit":
+            print("Goodbye.")
+            break
+
+        answer = ask_chatbot(question)
+
+        print("\nLegal Answer:\n")
+        print(answer)
+        print("\n" + "="*60 + "\n")
 
 
-for i, doc in enumerate(documents):
-
-    emb = get_embedding(doc)
-
-    insert_document(i, emb, doc)
-
-
-while True:
-
-    query = input("Ask legal question: ")
-
-    answer = chatbot(query)
-
-    print("\nAnswer:\n", answer)
+if __name__ == "__main__":
+    main()
