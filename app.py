@@ -3,7 +3,7 @@ LexIntel Legal AI Chatbot
 Terminal interface
 """
 
-from src.chatbot import ask_chatbot
+from src.chatbot.chatbot import ask_chatbot
 
 
 def main():

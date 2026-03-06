@@ -1,7 +1,7 @@
 import os
 
-from src.embedder import get_embedding
-from src.qdrant_db import create_collection, insert_batch
+from src.embeddings.embedder import get_embedding
+from src.database.qdrant_db import create_collection, insert_batch
 
 DATA_FOLDER = "data/legal_docs/ipc"
 

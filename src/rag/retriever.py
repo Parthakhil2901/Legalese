@@ -3,8 +3,8 @@ Retriever module
 Purpose: Convert user query → embedding → search Qdrant → return best legal text
 """
 
-from src.embedder import get_embedding
-from src.qdrant_db import search
+from src.embeddings.embedder import get_embedding
+from src.database.qdrant_db import search
 
 
 def retrieve(query: str):

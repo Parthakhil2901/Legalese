@@ -3,7 +3,7 @@ Chatbot controller
 Purpose: Accept user question → retrieve answer → return response
 """
 
-from src.retriever import retrieve
+from src.rag.retriever import retrieve
 
 
 def ask_chatbot(question: str):
