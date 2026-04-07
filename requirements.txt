@@ -3,3 +3,8 @@ qdrant-client==1.9.1
 torch
 transformers
 numpy
+streamlit==1.55.0
+mistralai
+python-dotenv
+PyPDF2
+python-docx
