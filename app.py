@@ -1,5 +1,5 @@
 """
-LexIntel Legal AI Chatbot
+Legalese Legal AI Chatbot
 Terminal interface
 """
 
